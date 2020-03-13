@@ -313,7 +313,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * If false the mouseover text for event icon will not be shown.
    */
-  @Input() set iconTooltip(iconTooltip: string | SohoCalendarTooltipFunction) {
+  @Input() set iconTooltip(iconTooltip: string | SohoCalendarTooltipFunction | undefined) {
     this._weekViewOptions.iconTooltip = iconTooltip;
     if (this.weekView) {
       this.weekView.settings.iconTooltip = iconTooltip;
@@ -321,7 +321,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get iconTooltip(): string | SohoCalendarTooltipFunction {
+  get iconTooltip(): string | SohoCalendarTooltipFunction | undefined {
     if (this.weekView) {
       return this.weekView.settings.iconTooltip;
     }
@@ -389,7 +389,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Call back for when the view changer is changed.
    */
-  @Input() set changeViewCallback(changeViewCallback: Function) {
+  @Input() set changeViewCallback(changeViewCallback: Function | undefined) {
     this._weekViewOptions.onChangeView = changeViewCallback;
     if (this.weekView) {
       this.weekView.settings.onChangeView = changeViewCallback;
@@ -397,7 +397,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get changeViewCallback(): Function {
+  get changeViewCallback(): Function | undefined {
     if (this.weekView) {
       return this.weekView.settings.onChangeView;
     }
@@ -427,7 +427,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
    * Local variables
    */
   private jQueryElement: JQuery;
-  private weekView: SohoWeekView;
+  private weekView?: SohoWeekView;
   private _weekViewOptions: SohoWeekViewOptions = {};
   private updateRequired: boolean;
 
@@ -538,7 +538,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
       }
       if (this.weekView) {
         this.weekView.destroy();
-        this.weekView = null;
+        this.weekView = undefined;
       }
     });
   }

@@ -96,14 +96,14 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    * If set to true, allows only one pane of the accordion to be open at a time.
    */
-  @Input() public set allowOnePane(allowOnePane: boolean) {
+  @Input() public set allowOnePane(allowOnePane: boolean | undefined) {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
     if (this.accordion) {
       this.accordion.settings.allowOnePane = this.options.allowOnePane;
       this.markForUpdate();
     }
   }
-  public get allowOnePane() {
+  public get allowOnePane(): boolean | undefined {
     return this.options.allowOnePane;
   }
 
@@ -113,14 +113,14 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    *
    */
-  @Input() public set displayChevron(displayChevron: boolean) {
+  @Input() public set displayChevron(displayChevron: boolean | undefined) {
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
     if (this.accordion) {
       this.accordion.settings.displayChevron = this.options.displayChevron;
       this.markForUpdate();
     }
   }
-  public get displayChevron() {
+  public get displayChevron(): boolean | undefined {
     return this.options.displayChevron;
   }
 
@@ -130,14 +130,14 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    *
    */
-  @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean) {
+  @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean | undefined) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
     if (this.accordion) {
       this.accordion.settings.rerouteOnLinkClick = this.options.rerouteOnLinkClick;
       this.markForUpdate();
     }
   }
-  public get rerouteOnLinkClick() {
+  public get rerouteOnLinkClick(): boolean | undefined {
     return this.options.rerouteOnLinkClick;
   }
 
@@ -221,10 +221,11 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Constructor.
    *
-   * @param elementRef - the element matching the component's selector.
+   * @param element - element reference
    * @param ngZone - zone access.
    */
-  constructor(private element: ElementRef, private ngZone: NgZone) {}
+  constructor(private element: ElementRef,
+              private ngZone: NgZone) {}
 
   // -------------------------------------------
   // Public API

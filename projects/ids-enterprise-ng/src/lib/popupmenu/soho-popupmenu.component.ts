@@ -370,7 +370,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   /**
    * Updates the control to reflect the settings.
    */
-  updated(settings): void {
+  public updated(settings): void {
     if (this.popupmenu) {
       this.ngZone.runOutsideAngular(() => this.popupmenu.updated(settings));
     }
@@ -379,7 +379,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   /**
    * Tear down the markup for the popup menu
    */
-  teardown(): void {
+  public teardown(): void {
     if (this.popupmenu) {
       this.ngZone.runOutsideAngular(() => this.popupmenu.teardown());
     }

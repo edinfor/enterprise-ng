@@ -47,7 +47,11 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
 
   private options: SohoProgressOptions = {};
   private jQueryElement: JQuery;
-  private progress: SohoProgressStatic;
+
+  /**
+   * Progress api.
+   */
+  private progress?: SohoProgressStatic;
 
   constructor(private element: ElementRef) { }
 

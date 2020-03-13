@@ -329,6 +329,15 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.disableRowDeactivation = true;
     comp.userObject = {};
     comp.showSelectAllCheckBox = false;
+    comp.emptyMessage = null;
+    comp.emptyMessage = undefined;
+    comp.emptyMessage = {
+      title: 'No Matches',
+      info: 'No products found that match your query',
+      icon: 'icon-empty-no-orders',
+      button: { text: 'Retry', click: () => { alert('try again'); } },
+      color: 'azure'
+    };
 
     expect(comp.uniqueId).toEqual('id2');
     expect(comp.idProperty).toEqual('id2');

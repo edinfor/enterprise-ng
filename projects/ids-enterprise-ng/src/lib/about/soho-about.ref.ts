@@ -30,7 +30,7 @@ export class SohoAboutRef {
    *
    * @param options - the options to set.
    */
-  options(options: SohoAboutOptions): SohoAboutRef {
+  options(options?: SohoAboutOptions): SohoAboutRef {
     this._options = options || {};
     return this;
   }
