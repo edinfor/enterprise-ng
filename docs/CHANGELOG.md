@@ -1,18 +1,66 @@
 # What's New with Enterprise-NG
 
+## v7.2.0
+
+### 7.2.0 Fixes
+
+- `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
+
+## v7.1.0
+
+### 7.1.0 Fixes
+
+- `[ContextualActionPanel]` The contextual action panel turned off all body events messing up other components attached to body so namespaced these.  `TJM` ([Issue #811](https://github.com/infor-design/enterprise-ng/issues/811))
+- `[Locale]` The types for locale were not incorrect, added fixes and enhanced them with new types.  `TJM` ([I #756](https://github.com/infor-design/enterprise-ng/issues/756))
+- `[Datagrid]` Added new aggregator types.  `TJM` ([#3752](https://github.com/infor-design/enterprise/issues/3752))
+- `[Datepicker]` Added newly added callback to disabled dates.  `TJM` ([#3462](https://github.com/infor-design/enterprise/issues/3462))
+- `[Wizard]` Prevent page refresh on selecting wizard ticks.  `BTHH` ([Pull Request #797](https://github.com/infor-design/enterprise-ng/pull/797))
+- `[Utils]` Added isInViewPort utils to types.  `TJM` ([#3738](https://github.com/infor-design/enterprise/issues/3738))
+
+## v7.0.3
+
+### 7.0.3 Features
+
+- `[FileUploadAdvanced]` Added support to fire event `fileremoved` for attached file removed. ([#3548](https://github.com/infor-design/enterprise/issues/3548))
+- `[FileUploadAdvanced]` Added support to api settings `maxFiles` to limit number of uploads. ([#3512](https://github.com/infor-design/enterprise/issues/3512))
+
+### 7.0.3 Fixes
+
+- `[General]` Added 4.27.4 patch release. `TJM`
+- `[General]` Bump minor version of NG. `TJM`
+
+## v7.0.2
+
+### 7.0.2 Fixes
+
+- `[General]` Added 4.27.3 patch release. `TJM`
+
+## v7.0.1
+
+### 7.0.1 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
 ## v7.0.0
 
 ### 7.0.0 Fixes
 
+- `[General]` Enabled Ivy with NG 9.1.  `BTHH` ([Issue #586](https://github.com/infor-design/enterprise-ng/issues/586))
 - `[General]` Enabled Ivy with NG 9.0.  `BTHH` ([Issue #586](https://github.com/infor-design/enterprise-ng/issues/586))
+- `[General]` Added numerous missing settings from 4.23 to 4.27.  `TJM` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
+- `[Datagrid]` Added missing showNewRowIndicator setting.  `TJM` ([Issue #430](https://github.com/infor-design/enterprise-ng/issues/430))
 - `[DataGrid]` Added missing and/or fixed methods `validateAll`, `validateRow`, and `showRowError`.  `TJM` ([Issue #704](https://github.com/infor-design/enterprise-ng/issues/704))
 - `[DataGrid]` Added `showSelectAllCheckBox` option.  `BTHH` ([Pull Request 740](https://github.com/infor-design/enterprise-ng/pull/740))
-- `[Icon]` Changed to remove `Renderer2` and use `href` instead of `xlink:href`.  `BTHH` ([Issue #3611](https://github.com/infor-design/enterprise/issues/3611))
+- `[DataGrid]` Added `hidePagerOnOnePage` input.  `TJM` ([Issue #771](https://github.com/infor-design/enterprise-ng/issues/771))
+- `[FileUploadAdvanced]` - Added `errorMaxFilesInProcess` and `errorMaxFileSize` inputs to component, and added zone compatibility.  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
 - `[FlexToobar]` Stopped 'more' button being activated on form submit.   `BTHH` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
+- `[Icon]` Changed to remove `Renderer2` and use `href` instead of `xlink:href`.  `BTHH` ([Issue #3611](https://github.com/infor-design/enterprise/issues/3611))
 - `[Lookup]` Updated example page to add async multiselect. ([#588](https://github.com/infor-design/enterprise-ng/issues/588))
+- `[Modal]` Added some missing settings and inputs. `TJM` ([#3562](https://github.com/infor-design/enterprise/issues/3562))
+- `[Popdown]` Added missing isOpen method.  `TJM` ([Issue #698](https://github.com/infor-design/enterprise-ng/issues/698))
 - `[Personalize]` Fixed errors and updated the theme and variant switcher to have several submenus.   `TJM/BTHH` ([Pull Request 745](https://github.com/infor-design/enterprise-ng/pull/745))
 - `[Personalize]` Fixed a problem reseting the color to default and reloading the page.   `TJMH` ([Pull Request 751](https://github.com/infor-design/enterprise-ng/pull/751))
-- `[FileUploadAdvanced]` - Added `errorMaxFilesInProcess` and `errorMaxFileSize` inputs to component, and added zone compatibility.  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
+- `[ModalDialog]` - Modal dialogs can now be optionally closed when navigating. `BTHH` ([Pull Request 784](https://github.com/infor-design/enterprise-ng/pull/784))
 
 ### 7.0.0 Features
 
@@ -26,6 +74,35 @@
 - `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 - `[Homepage]` Exposed the editing functionality to allow widgets to be resized, reordered, and removed. `CRL` ([#768](https://github.com/infor-design/enterprise-ng/issues/768))
 
+## v6.6.4
+
+### 6.6.4 Fixes
+
+- `[General]` Added 4.27.4 patch release. `TJM`
+- `[General]` Added showTags types in dropdown. `TJM`
+
+## v6.6.3
+
+### 6.6.3 Fixes
+
+- `[General]` Added 4.27.3 patch release. `TJM`
+
+## v6.6.2
+
+### 6.6.2 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
+## v6.6.1
+
+- `[Icons]` Added a fix to support both `href` and `xlink:href` in icons. ([#3734](https://github.com/infor-design/enterprise/issues/3734))
+
+## v6.6.0
+
+### 6.6.0 Fixes
+
+- `[General]` Adds 4.27.x release. `TJM`
+
 ## v6.5.1
 
 ### 6.5.1 Fixes
@@ -37,6 +114,7 @@
 ### 6.5.0 Fixes
 
 - `[ContextualActionPanel]` Fixed default settings. `BTHH` ([#720](https://github.com/infor-design/enterprise-ng/issues/720]))
+- `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
 
 ### 6.5.0 Features
 

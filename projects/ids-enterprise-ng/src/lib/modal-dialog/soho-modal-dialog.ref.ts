@@ -1,9 +1,10 @@
 /// <reference path="soho-modal-dialog.d.ts" />
 
-import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
+import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentType } from '.';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Wrapper for the jQuery modal control.
@@ -16,6 +17,12 @@ export class SohoModalDialogRef<T> {
   /** Vetoable Event Guard */
   // tslint:disable-next-line: deprecation
   private eventGuard: SohoModalDialogVetoableEventGuard<T> = {};
+
+  /**
+   * Closes the modal dialogs if router navigation is detected, this prevents diaslogs from being
+   * left open when navigating.
+   */
+  private _closeOnNavigation = true;
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: JQuery;
@@ -82,14 +89,60 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the frame height for the dialog.
-   *
    * @param frameHeight - the extra frame height to allow.
    */
   frameHeight(frameHeight: number): SohoModalDialogRef<T> {
     this._options.frameHeight = frameHeight;
     if (this.modal) {
       this.modal.settings.frameHeight = frameHeight;
-      // @todo - need an api on modal to update settings.
+    }
+    return this;
+  }
+
+  /**
+   * Sets the frame width for the dialog.
+   * @param frameWidth - the extra frame width to allow.
+   */
+  frameWidth(frameWidth: number): SohoModalDialogRef<T> {
+    this._options.frameWidth = frameWidth;
+    if (this.modal) {
+      this.modal.settings.frameWidth = frameWidth;
+    }
+    return this;
+  }
+
+  /**
+   * A call back function that can be used to return data for the modal. This is the callback form of the before show event.
+   * @param beforeShow - The callback function
+   */
+  beforeShow(beforeShow: any): SohoModalDialogRef<T> {
+    this._options.beforeShow = beforeShow;
+    if (this.modal) {
+      this.modal.settings.beforeShow = beforeShow;
+    }
+    return this;
+  }
+
+  /**
+   * If true, show a close icon button on the top right of the modal.
+   * @param showCloseBtn - if true the x will be shown.
+   */
+  showCloseBtn(showCloseBtn: boolean): SohoModalDialogRef<T> {
+    this._options.showCloseBtn = showCloseBtn;
+    if (this.modal) {
+      this.modal.settings.showCloseBtn = showCloseBtn;
+    }
+    return this;
+  }
+
+  /**
+   * Optional max width to add in pixels.
+   * @param maxWidth - The width in pixels
+   */
+  maxWidth(maxWidth: number): SohoModalDialogRef<T> {
+    this.modal.settings.maxWidth = maxWidth;
+    if (this.modal) {
+      this.modal.settings.maxWidth = maxWidth;
     }
     return this;
   }
@@ -189,6 +242,42 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Controls the opacity of the background overlay.
+   * @param overlayOpacity - The percent between 0 and 1 of opacity to use.
+   */
+  overlayOpacity(overlayOpacity: number): SohoModalDialogRef<T> {
+    this._options.overlayOpacity = overlayOpacity;
+    if (this.modal) {
+      this.modal.settings.overlayOpacity = overlayOpacity;
+    }
+    return this;
+  }
+
+  /**
+   * If true, causes the modal's trigger element not to become focused once the modal is closed.
+   * @param noRefocus - If true, refocus
+   */
+  noRefocus(noRefocus: boolean): SohoModalDialogRef<T> {
+    this._options.noRefocus = noRefocus;
+    if (this.modal) {
+      this.modal.settings.noRefocus = noRefocus;
+    }
+    return this;
+  }
+
+  /**
+   * The modal's trigger element to keep refocused once the modal is closed. This can be html or jquery object or query selector as string.
+   * @param triggerButton - The element (for example a button) to refocus on close.
+   */
+  triggerButton(triggerButton: boolean): SohoModalDialogRef<T> {
+    this._options.triggerButton = triggerButton;
+    if (this.modal) {
+      this.modal.settings.triggerButton = triggerButton;
+    }
+    return this;
+  }
+
+  /**
    * Sets the 'content' that the modal control uses.
    *
    * @param content - a selector or string representing the dialog content.
@@ -236,12 +325,23 @@ export class SohoModalDialogRef<T> {
    * instance.
    *
    * @param component - the instantated instance.
-   * @return the dialof ref for onward assignment.
+   * @return the dialog ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoModalDialogRef<T> {
     if (fn && this.componentRef.instance) {
       fn(this.componentRef.instance);
     }
+    return this;
+  }
+
+  /**
+   * When set to true, this dialog is closed when navigation is detected.
+   *
+   * @param closeOnNavigation controls the close behaviour when navigating.
+   * @return the dialog ref for support a fluent api.
+   */
+  closeOnNavigation(closeOnNavigation: boolean): SohoModalDialogRef<T> {
+    this._closeOnNavigation = closeOnNavigation;
     return this;
   }
 
@@ -263,6 +363,7 @@ export class SohoModalDialogRef<T> {
    * @paran appRef - application reference used to insert the component.
    */
   constructor(
+    router: Router,
     private appRef: ApplicationRef,
     componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -272,14 +373,43 @@ export class SohoModalDialogRef<T> {
     this.options(settings);
 
     if (modalComponent) {
+
+      // Create component
       this.componentRef = componentFactoryResolver
         .resolveComponentFactory(modalComponent)
         .create(this.injector);
-      this.eventGuard = this.componentRef.instance;
-      // Attach
+
       appRef.attachView(this.componentRef.hostView);
+
+      // Handle angular closing the component by closing the corresponding dialog.
+      this.componentRef.onDestroy(() => {
+        // Disable the beforeClose veto capability when navigating.
+        this.eventGuard.beforeClose = null;
+        this.close();
+      });
+
+      // Initialise the event guart
+      this.eventGuard = this.componentRef.instance;
+
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
+
+    // Add a subscription to the router to remove
+    // the dialog when the user navigates.
+    router.events
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(e => {
+        if (this._closeOnNavigation && e instanceof NavigationEnd) {
+          // Disable the beforeClose veto capability when navigating.
+          this.eventGuard.beforeClose = null;
+          if (this.modal) {
+            this.modal.close(true);
+          }
+          if (this.componentRef) {
+            this.componentRef.destroy();
+          }
+        }
+      });
   }
 
   /**

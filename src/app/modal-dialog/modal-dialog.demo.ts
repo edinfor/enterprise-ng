@@ -5,12 +5,9 @@ import {
 } from '@angular/core';
 
 import {
-  SohoModalRef,
-  SohoModalService,
   SohoModalDialogService
 } from 'ids-enterprise-ng';
 
-import { ExampleModalDialogComponent } from './example-modal-dialog.component';
 import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
@@ -30,98 +27,36 @@ export class ModalDialogDemoComponent {
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
   placeholder: ViewContainerRef;
 
-  public closeResult: string;
-
+  public closeResult = '(N/A)';
   public title = 'Example Modal Dialog';
-  public isAlert = false;
-  public allowOpen = false;
 
   /**
    * Constructor.
    *
    * @param dialogService - the modal dialog service.
    */
-  constructor(
-    private modalService: SohoModalDialogService,
-    private newModalService: SohoModalService) {
-  }
-
-  public dialogRef: SohoModalRef<ExampleModalDialogComponent>;
-
-  openSimple() {
-    if (this.dialogRef) {
-      return this.dialogRef.open();
-    }
-
-    this.dialogRef = this.newModalService
-      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent)
-      .buttons([
-        {
-          id: 'cancel-button',
-          text: Soho.Locale.translate('Cancel'),
-          click: (e) => { this.dialogRef.close('CANCEL'); }
-        },
-        {
-          text: 'Submit', click: (e, modal) => {
-            this.dialogRef.close(this.dialogRef.componentDialog.model.comment);
-          }, isDefault: true
-        }
-      ])
-      .title(this.title)
-      .isAlert(this.isAlert)
-      .apply((componentDialog) => {
-        componentDialog.model.header = 'Header Text Update!!';
-      })
-      .open();
-
-    // Attach a listener to the afterClose event, which also gives you the result - if available.
-    this.dialogRef
-      .opened(() => console.log('dialog opened'))
-      .afterOpen(() => console.log('dialog afterOpen'))
-      .closed(() => console.log('dialog closed'))
-      .afterClose((result) => {
-        this.closeResult = result;
-        console.log(`dialog afterClose result: {result}`);
-      })
-      .beforeOpen(() => this.allowOpen)
-      .beforeClose(() => this.dialogRef.componentDialog.allowClose)
-      .beforeDestroy(() => {
-        if (this.dialogRef.componentDialog.allowDestroy) {
-          this.dialogRef = null;
-          return true;
-        }
-        return false;
-      });
-  }
-
-  destroyModal() {
-    this.dialogRef.destroy();
-    this.dialogRef = null;
+  constructor(private modalService: SohoModalDialogService) {
   }
 
   openFullSize() {
     const dialogRef = this.modalService
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
-      .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
-      .isAlert(this.isAlert)
-      .fullsize('responsive')
-      .breakpoint('phablet')
-      .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
-      .open()
-      .afterClose(result => {
-        this.closeResult = result;
-      });
+      .buttons(
+        [
+          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+        ])
+
+      .open();
   }
 
   openNested() {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{ text: 'Cancel', click: () => { dialogRef.close(); } },
+        { text: 'Submit', click: () => { dialogRef.close(); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose((result) => {

@@ -12,7 +12,7 @@ import {
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
 import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
-import { ContextualActionPanelFullSizeComponent } from './contextual-action-panel-fullsize.component';
+import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
@@ -50,7 +50,8 @@ export class ContextualActionPanelDemoComponent {
         cssClass: 'btn',
         icon: '#icon-save',
         click: (_e: any, panel: any) => {
-          panel.close(true);
+          this.openPanel2(); // This will reopen
+          // panel.close(true); // This will show nothing
         }
       },
       {
@@ -68,6 +69,48 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef = this.panelService
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ buttons: buttons, title: this.title })
+      .open()
+      .initializeContent(true)
+      .opened(() => {
+        console.log('Open Fires');
+      })
+      .afterOpen(() => {
+        console.log('After Open Fires');
+      })
+      .closed(() => {
+        console.log('Closed Fires');
+      })
+      .afterClose(() => {
+        console.log('After Close Fires');
+      });
+  }
+
+  openPanel2() {
+    const buttons = [
+      {
+        text: 'Save',
+        cssClass: 'btn',
+        icon: '#icon-save',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        }
+      },
+      {
+        cssClass: 'separator'
+      },
+      {
+        text: 'Close',
+        cssClass: 'btn',
+        icon: '#icon-close',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        },
+        isDefault: true
+      }];
+
+    this.panelRef = this.panelService
+      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
@@ -112,12 +155,16 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
+    // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
     this.panelRef = this.panelService
-      .contextualactionpanel(ContextualActionPanelFullSizeComponent, this.placeholder)
-      .modalSettings({ fullsize: 'responsive', breakpoint: 'phablet', buttons: buttons, title: this.title })
-      .open()
-      .initializeContent(true);
+          .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+          .modalSettings({ buttons: buttons, title: this.title })
+          .initializeContent(true);
 
-    const button: SohoContextualActionPanelButton = { cssClass: 'separator' };
+    this.panelRef
+          .apply((ref) => {
+            ref.panelRef = this.panelRef;
+          })
+          .open();
   }
 }

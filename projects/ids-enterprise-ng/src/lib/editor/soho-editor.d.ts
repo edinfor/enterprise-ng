@@ -10,6 +10,11 @@ interface SohoEditorButtons {
   source: Array<any>;
 }
 
+interface SohoEditorRows {
+  editor: number;
+  source: number;
+}
+
 /**
  * Editor Options
  */
@@ -24,6 +29,7 @@ interface SohoEditorOptions {
   onLinkClick?: (e: JQuery.TriggeredEvent, elem: any) => void;
   showHtmlView?: boolean;
   preview?: boolean;
+  rows?: SohoEditorRows;
 }
 
 interface SohoEditorAnchor {
@@ -35,15 +41,14 @@ interface SohoEditorAnchor {
 }
 
 /**
- * @interface SohoEditorOptionsImage
+ * Options for the Get Image Modal.
  */
 interface SohoEditorOptionsImage {
   url?: string;
 }
 
 /**
- * This interface represents the public API exposed by the
- * editor.
+ * This interface represents the public API exposed by the editor.
  */
 interface SohoEditorStatic {
 
