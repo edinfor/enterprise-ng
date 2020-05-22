@@ -35,9 +35,9 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     this.internalIsDisabled = value;
     if (this.spinbox) {
       if (value) {
-        this.ngZone.runOutsideAngular(() => this.spinbox.disable());
+        this.ngZone.runOutsideAngular(() => this.spinbox?.disable());
       } else {
-        this.ngZone.runOutsideAngular(() => this.spinbox.enable());
+        this.ngZone.runOutsideAngular(() => this.spinbox?.enable());
       }
     } else {
       this.runUpdatedOnCheck = true;
@@ -57,10 +57,13 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return 'text';
   }
 
-  @HostBinding('attr.id') @Input() id: string;
-  @HostBinding('attr.name') @Input() name: string;
-  @HostBinding('attr.min') @Input() min: number;
-  @HostBinding('attr.max') @Input() max: number;
+  @HostBinding('attr.id') @Input() id?: string;
+
+  @HostBinding('attr.name') @Input() name?: string;
+
+  @HostBinding('attr.min') @Input() min?: number;
+
+  @HostBinding('attr.max') @Input() max?: number;
 
   /**
    * Value of the spin box.
@@ -83,8 +86,8 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
   }
 
   private options: SohoSpinboxOptions = {};
-  private jQueryElement: JQuery;
-  private spinbox: SohoSpinboxStatic;
+  private jQueryElement?: JQuery;
+  private spinbox?: SohoSpinboxStatic;
 
   updateVal(value: string | number) {
     if (this.spinbox) {
@@ -132,9 +135,9 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
-       // Enforce the initial disabled value (this handles the zone internall)
-       this.disabled = this.internalIsDisabled;
-       this.runUpdatedOnCheck = false;
+      // Enforce the initial disabled value (this handles the zone internall)
+      this.disabled = this.internalIsDisabled;
+      this.runUpdatedOnCheck = false;
     }
   }
 

@@ -332,7 +332,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Fires when a week view is rendered, allowing you to pass back events or event types to show.
    */
-  @Input() set renderWeekCallback(renderWeekCallback: Function) {
+  @Input() set renderWeekCallback(renderWeekCallback: Function | undefined) {
     this._weekViewOptions.onRenderWeek = renderWeekCallback;
     if (this.weekView) {
       this.weekView.settings.onRenderWeek = renderWeekCallback;
@@ -340,7 +340,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get renderWeekCallback(): Function {
+  get renderWeekCallback(): Function | undefined {
     if (this.weekView) {
       return this.weekView.settings.onRenderWeek;
     }
@@ -351,7 +351,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Call back for when the view changer is changed.
    */
-  @Input() set changeToWeekDayCallback(changeToWeekDayCallback: Function) {
+  @Input() set changeToWeekDayCallback(changeToWeekDayCallback: Function | undefined) {
     this._weekViewOptions.onChangeToWeekDay = changeToWeekDayCallback;
     if (this.weekView) {
       this.weekView.settings.onChangeToWeekDay = changeToWeekDayCallback;
@@ -359,7 +359,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get changeToWeekDayCallback(): Function {
+  get changeToWeekDayCallback(): Function | undefined {
     if (this.weekView) {
       return this.weekView.settings.onChangeToWeekDay;
     }
@@ -370,7 +370,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Call back for when the week is changed.
    */
-  @Input() set changeWeekCallback(changeWeekCallback: Function) {
+  @Input() set changeWeekCallback(changeWeekCallback: Function | undefined) {
     this._weekViewOptions.onChangeWeek = changeWeekCallback;
     if (this.weekView) {
       this.weekView.settings.onChangeWeek = changeWeekCallback;
@@ -378,7 +378,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get changeWeekCallback(): Function {
+  get changeWeekCallback(): Function | undefined {
     if (this.weekView) {
       return this.weekView.settings.onChangeWeek;
     }
