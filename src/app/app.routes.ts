@@ -18,6 +18,7 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
@@ -110,7 +111,6 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
@@ -178,6 +178,8 @@ import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
+import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
+import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -198,6 +200,7 @@ export const routes: Routes = [
   { path: 'bubble', component: BubbleDemoComponent },
   { path: 'bullet', component: BulletDemoComponent },
   { path: 'button', component: ButtonDemoComponent },
+  { path: 'buttonset', component: ButtonsetDemoComponent },
   { path: 'busyindicator', component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody', component: BusyIndicatorDemoBodyComponent },
   { path: 'calendar-monthview', component: CalendarDemoComponent },
@@ -234,6 +237,8 @@ export const routes: Routes = [
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings', component: DataGridSettingsDemoComponent },
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
+  { path: 'datagrid-expandable-row-dynamic', component: DataGridExpandableRowDynamicDemoComponent },
+  { path: 'datagrid-expandable-row-nested', component: DataGridExpandableRowNestedDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
@@ -294,7 +299,6 @@ export const routes: Routes = [
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
-  { path: 'mask-legacy', component: MaskLegacyDemoComponent },
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
   { path: 'modal-dialog', component: ModalDialogDemoComponent },

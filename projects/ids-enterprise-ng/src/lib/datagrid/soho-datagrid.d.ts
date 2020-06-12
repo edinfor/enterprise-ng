@@ -318,6 +318,15 @@ interface SohoDataGridOptions {
 
   /* Html string for the expandable row area*/
   rowTemplate?: string;
+
+  /* Dynamic component to build */
+  rowTemplateComponent?: any;
+
+  /* Field to get the data from datarow */
+  rowTemplateField?: string;
+
+  /* The inputs for dynamic component  */
+  rowTemplateComponentInputs?: any;
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -807,6 +816,9 @@ interface SohoDataGridColumn {
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
 
+  /** href target for hyperlink */
+  target?: string;
+
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
 
@@ -931,8 +943,14 @@ interface SohoDataGridStatic {
   /** Overridable sort function. */
   sortFunction: SohoDataGridSortFunction;
 
-  /** Reference to pager. */
+  /**
+   * Reference to pager.
+   *  @deprecated use pagerAPI
+   */
   pager: SohoPagerStatic;
+
+  /** Reference to pager. */
+  pagerAPI: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
@@ -1000,7 +1018,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean);
+  setSortColumn(columnId: string, ascending?: boolean): void;
 
   columnById(id: string): Array<any>;
 

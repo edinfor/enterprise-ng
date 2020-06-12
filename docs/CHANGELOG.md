@@ -1,10 +1,74 @@
 # What's New with Enterprise-NG
 
+## v7.3.0
+
+### 7.3.0 Fixes
+
+- `[Datagrid]` Fixed updatePagingInfo function which was wired on pager now and not working. To fix it i kept it flat on the datagrid object  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
+- `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
+- `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
+
+## v7.2.4
+
+### 7.2.4 Fixes
+
+- `[General]` Added Ids and Angular to latest stable versions and fix a build issue with 7.2.3-7.2.1 and sync issues.  `TJM`
+
+## v7.2.1
+
+### 7.2.1 Fixes
+
+- `[General]` Added Ids and Angular to latest stable versions.  `TJM`
+
 ## v7.2.0
+
+### 7.2.0 Notes
+
+- `[General]` Since d3 and jQuery dependencies are updated to newer versions you may have to adjust the path in your angular.json file for the d3 file `node_modules/d3/dist/d3.js`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[General]` Note that Angular 9 needs TS 3.6 or above. We are currently testing on 3.83 so you may need to update your typescript version especially if you see an error such as `An accessor cannot be declared in ambient context`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+
+### 7.2.0 Features
+
+- `[Accordion]` Added the ability to pass a string ID to expand and collapse.  `TJM` ([Issue #783](https://github.com/infor-design/enterprise-ng/issues/783))
+- `[Buttonset]` Added support for `buttonset`.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Bar]` Added new fitHeight setting for alternate widget sizing.  `TJM` ([Issue #3702](https://github.com/infor-design/enterprise/issues/3702))
+- `[Dropdown]` Added several missing search / tag related options.  `TJM` ([Issue #3767](https://github.com/infor-design/enterprise/issues/3767))
+- `[General]` d3 and jQuery dependencies are updated to newer versions.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[Lookup]` Added new clearable option and several missing settings (delimiter, minWidth).  `TJM` ([Issue #2507](https://github.com/infor-design/enterprise/issues2507781))
+- `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Mask]` Removed the old and deprecated MaskLegacyDemoComponent from the examples.  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Popupmenu]` Added new shortcut text option.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise/issues/3849))
+- `[Slider]` Added missing options tooltipPosition, sliding, slidestart, slidestop.  `TJM` ([Issue #787](https://github.com/infor-design/enterprise-ng/issues/787))
+- `[Tree]` Added a new contextmenu method, and show a dynamic menu example.  `TJM` ([Issue #794](https://github.com/infor-design/enterprise-ng/issues/79))
 
 ### 7.2.0 Fixes
 
+- `[Datagrid]` Update the dynamic datagrid example to not show the browser contextmenu.  `TJM` ([#817](https://github.com/infor-design/enterprise/issues/817))
 - `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
+- `[Homepage]` Homepage edit events (resize, reorder, remove widgets) now fire on widget elements too ([#770](https://github.com/infor-design/enterprise-ng/issues/770))
+
+## v7.1.4
+
+### 7.1.4 Fixes
+
+- `[General]` Added 4.28.2 patch release. `TJM`
+
+## v7.1.3
+
+### 7.1.3 Fixes
+
+- `[FieldFilter]` Added patch for a new API setting the filter operator. `NBCP` ([Issue #820](https://github.com/infor-design/enterprise-ng/pull/820))
+
+## v7.1.1
+
+### 7.1.1 Fixes
+
+- `[General]` Added 4.28.1 patch release. `TJM`
+- `[General]` Added new type for isPrimary in empty message `TJM`
 
 ## v7.1.0
 

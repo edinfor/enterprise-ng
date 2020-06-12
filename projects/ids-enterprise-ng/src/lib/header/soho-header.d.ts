@@ -10,7 +10,7 @@
  * editor.
  */
 interface SohoHeaderStatic {
-  /**
+/**
    * Removes go back button
    * Resets header button back to the hamburger button
    */

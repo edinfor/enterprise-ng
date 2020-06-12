@@ -105,6 +105,8 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-lazy.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
+import { ExpandedDemoComponent, DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -148,7 +150,6 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
@@ -227,6 +228,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 
 @NgModule({
   declarations: [
@@ -251,6 +253,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
+    ButtonsetDemoComponent,
     CardFormatterComponent,
     CalendarDemoComponent,
     CalendarLegendDemoComponent,
@@ -306,6 +309,10 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
+    NestedDatagridDemoComponent,
+    ExpandedDemoComponent,
+    DataGridExpandableRowNestedDemoComponent,
+    DataGridExpandableRowDynamicDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
@@ -353,7 +360,6 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     LookupDemoComponent,
     LookupValidationDemoComponent,
     MaskDemoComponent,
-    MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
     NotificationDemoComponent,
@@ -446,6 +452,8 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     SohoRenderLoopService
   ],
   entryComponents: [
+    ExpandedDemoComponent,
+    NestedDatagridDemoComponent,
     DemoCellDatePickerEditorComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
