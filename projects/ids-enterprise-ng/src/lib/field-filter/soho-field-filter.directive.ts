@@ -57,7 +57,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private fieldFilter: SohoFieldFilterStatic;
   private runUpdatedOnCheck: boolean;
 

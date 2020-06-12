@@ -90,26 +90,26 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   // Public API
   // -------------------------------------------
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
   /**
    * Local variables
    */
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
-  private jQueryElement: JQuery;
-  private autocomplete: SohoAutoCompleteStatic;
+  private isDisabled?: boolean;
+  private isReadOnly?: boolean;
+  private jQueryElement?: JQuery;
+  private autocomplete?: SohoAutoCompleteStatic;
 
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
 
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     if (value) {
       if (this.autocomplete) {
         this.autocomplete.disable();
@@ -124,7 +124,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     if (this.autocomplete) {
       if (value) {
         this.autocomplete.readonly();
@@ -142,10 +142,10 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp() {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
-    this.internalValue = this.jQueryElement.val() as string;
+    this.internalValue = this.jQueryElement?.val() as string;
   }
 
   ngAfterViewInit() {
@@ -154,8 +154,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     // Bind to jQueryElement's events
     this.jQueryElement
       .on('selected', (...args) => this.selected.emit(args))
-      .on('change', (e: any, args: any[]) => this.onChange(args))
-      .on('beforeopen', (e: any, args: SohoAutoCompleteEvent) => this.beforeopen.emit(args));
+      .on('change', (_: any, args: any[]) => this.onChange(args))
+      .on('beforeopen', (_: any, args: SohoAutoCompleteEvent) => this.beforeopen.emit(args));
 
     // Invoke the Autocomplete
     this.jQueryElement.autocomplete(this.options);
@@ -174,7 +174,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   ngOnDestroy() {
     if (this.autocomplete) {
       this.autocomplete.destroy();
-      this.autocomplete = null;
+      this.autocomplete = undefined;
     }
   }
 
@@ -184,7 +184,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   onChange(event: any[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val() as string;
+      this.internalValue = this.jQueryElement?.val() as string;
       super.writeValue(this.internalValue);
       return;
     }
@@ -218,7 +218,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
 
   /** For async methods, reinit autocomplete `source` setting. */
   public updated(): SohoAutoCompleteComponent {
-    this.autocomplete.updated();
+    this.autocomplete?.updated();
     return this;
   }
 

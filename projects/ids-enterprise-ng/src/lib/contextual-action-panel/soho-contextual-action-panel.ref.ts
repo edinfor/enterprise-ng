@@ -14,7 +14,7 @@ export class SohoContextualActionPanelRef<T> {
   private componentRef?: ComponentRef<T>;
 
   /** Selector referencing the panel-panel after it has been moved to the panel container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
   private contextualactionpanel: SohoContextualActionPanelStatic;

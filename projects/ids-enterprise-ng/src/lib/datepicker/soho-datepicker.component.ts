@@ -36,7 +36,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   private datepicker: SohoDatePickerStatic;
 

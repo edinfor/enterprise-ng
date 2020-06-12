@@ -36,7 +36,7 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private trackDirty: TrackDirtyStatic;
 
   constructor(

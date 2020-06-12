@@ -163,7 +163,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   public column: SohoColumn;
   private updateRequired = false;
 

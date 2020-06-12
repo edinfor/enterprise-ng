@@ -56,7 +56,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private circlepager: SohoCirclepager;
   private updateRequired = false;
 

@@ -36,21 +36,13 @@ describe('Soho AutoComplete Unit Tests', () => {
   it('Check Inputs', () => {
     const offset: SohoAutoCompleteOffset = { top: 10, left: 10 };
 
-    comp.source = null;
-    comp.sourceArguments = null;
-    comp.template = null;
     comp.caseSensitive = false;
-    comp.filterMode = null;
     comp.delay = 250;
     comp.width = 200;
     comp.offset = offset;
     comp.autoSelectFirstItem = false;
 
-    expect(comp['options'].source).toEqual(null);
-    expect(comp['options'].sourceArguments).toEqual(null);
-    expect(comp['options'].template).toEqual(null);
     expect(comp['options'].caseSensitive).toEqual(false);
-    expect(comp['options'].filterMode).toEqual(null);
     expect(comp['options'].delay).toEqual(250);
     expect(comp['options'].width).toEqual(200);
     expect(comp['options'].offset).toEqual(offset);
@@ -75,7 +67,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public source = (term: string, response: any) => {
     const states = [

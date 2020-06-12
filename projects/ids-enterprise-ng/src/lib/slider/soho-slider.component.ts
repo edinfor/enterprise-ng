@@ -117,7 +117,7 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   private isVertical = false;
   private isVerticalOriginal = false;
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private slider: SohoSliderStatic;
   private options: SohoSliderOptions = {};
 

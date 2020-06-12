@@ -49,7 +49,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Selector for originating element.
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Reference to the IDS Enterprise Api.

@@ -165,7 +165,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.homepage') isHomepage = true;
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the annotated SoHoXi control
   private homepage: SohoHomePageStatic;

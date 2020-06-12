@@ -111,7 +111,7 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
   /** Events */
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private treemap: SohoTreemap;
   private updateRequired = false;
 

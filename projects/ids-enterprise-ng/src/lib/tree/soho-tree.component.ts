@@ -214,7 +214,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // -------------------------------------------
 
   /** Reference to the jQuery control. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the SoHo tree control api. */
   private tree: SohoTreeStatic;

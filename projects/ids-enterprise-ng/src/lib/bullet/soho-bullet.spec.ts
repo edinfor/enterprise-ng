@@ -98,13 +98,11 @@ describe('Soho Bullet Unit Tests', () => {
   template: `<div soho-bullet [dataset]="data"></div>`
 })
 class SohoBulletTestComponent {
-  @ViewChild(SohoBulletComponent) bullet: SohoBulletComponent;
+  @ViewChild(SohoBulletComponent) bullet?: SohoBulletComponent;
   public data = bulletData1;
 }
 
-describe('Soho Bullet Chart Render', () => {
-  let bullet: SohoBulletComponent;
-  let component: SohoBulletTestComponent;
+fdescribe('Soho Bullet Chart Render', () => {
   let fixture: ComponentFixture<SohoBulletTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -116,13 +114,10 @@ describe('Soho Bullet Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoBulletTestComponent);
-    component = fixture.componentInstance;
-
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bullet]')).nativeElement;
 
     fixture.detectChanges();
-    bullet = component.bullet;
   });
 
   it('Check HTML content', () => {

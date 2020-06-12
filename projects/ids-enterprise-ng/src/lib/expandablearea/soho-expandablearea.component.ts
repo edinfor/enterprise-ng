@@ -117,7 +117,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Output() aftercollapse: EventEmitter<Object> = new EventEmitter<Object>();
 
   // Various local variables used for logic
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private expandablearea: SohoExpandableAreaStatic;
   private _disabled: boolean;
   private _closed: boolean;

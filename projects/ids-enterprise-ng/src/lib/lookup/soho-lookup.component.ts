@@ -107,7 +107,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   private lookup: SohoLookupStatic;
 

@@ -102,7 +102,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private sparkline: SohoSparkline;
   private updateRequired = false;
 

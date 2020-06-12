@@ -22,7 +22,7 @@ export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private fieldOptions: SohoFieldOptionsStatic;
 
   constructor(

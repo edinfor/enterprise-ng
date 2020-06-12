@@ -26,7 +26,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @HostBinding('attr.type') get buttonType() { return 'button'; }
 
   /** The underlying jQuery instance. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** The enterprise widget api. */
   private menuButton: SohoPopupMenuStatic;

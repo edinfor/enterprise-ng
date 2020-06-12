@@ -356,7 +356,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   private options: SohoFileUploadAdvancedOptions = {};
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
   private fileuploadadvanced: SohoFileUploadAdvancedStatic;

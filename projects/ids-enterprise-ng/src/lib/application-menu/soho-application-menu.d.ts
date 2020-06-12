@@ -31,19 +31,19 @@ type SohoApplicationMenuCollapseSwitcherFunction = (
 
 interface SohoApplicationMenuOptions {
   /** Defines the point at which the application should be displayed - depends on device. */
-  breakpoint: SohoApplicationMenuBreakPoint;
+  breakpoint?: SohoApplicationMenuBreakPoint;
 
   /** Is this application menu filterable. */
   filterable?: boolean;
 
   /** Open the menu when the screen width is larger that the breakpoint. */
-  openOnLarge: boolean;
+  openOnLarge?: boolean;
 
   /** Allows the menu to become closed after an actionable header has been selected */
-  dismissOnClickMobile: boolean;
+  dismissOnClickMobile?: boolean;
 
   /** The controls which can trigger the display state of the application menu. */
-  triggers: any[];
+  triggers?: any[];
 
   onExpandSwitcher?: SohoApplicationMenuExpandSwitcherFunction;
 
@@ -105,7 +105,7 @@ interface SohoApplicationMenuStatic {
   /**
    * Cleans up any markup.
    */
-  destroy();
+  destroy(): void;
 }
 
 interface JQueryStatic {

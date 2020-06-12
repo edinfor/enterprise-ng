@@ -35,7 +35,7 @@ class SohoAutoCompleteReactiveFormTestComponent {
 
   autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
 
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public formGroup: FormGroup;
 
@@ -53,8 +53,7 @@ class SohoAutoCompleteReactiveFormTestComponent {
   }
 }
 
-describe('§SohoAutoCompleteComponent on Reactive Form', () => {
-  let autocomplete: SohoAutoCompleteComponent;
+describe('SohoAutoCompleteComponent on Reactive Form', () => {
   let component: SohoAutoCompleteReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoAutoCompleteReactiveFormTestComponent>;
   let de: DebugElement;
@@ -68,7 +67,6 @@ describe('§SohoAutoCompleteComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoAutoCompleteReactiveFormTestComponent);
     component = fixture.componentInstance;
-    autocomplete = component.autocomplete;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;

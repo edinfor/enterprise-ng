@@ -197,7 +197,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the soho stepprocess control api.
   private stepprocess: SohoStepProcessStatic;

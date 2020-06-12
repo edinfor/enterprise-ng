@@ -160,7 +160,7 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private line: SohoLine;
   private updateRequired = false;
 

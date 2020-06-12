@@ -39,12 +39,12 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private initiallyActive: boolean;
+  private initiallyActive?: boolean;
 
   // Reference to the SoHoXi control api.
-  private busyindicator: SohoBusyIndicatorStatic;
+  private busyindicator?: SohoBusyIndicatorStatic | null;
 
   private updateBusyIndicator = false;
   // -------------------------------------------
@@ -106,7 +106,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
 
   /** Controls the activated state of the busy indicator. */
   @Input()
-  public set activated(value: boolean) {
+  public set activated(value: boolean | undefined) {
     this.initiallyActive = value;
     if (value) {
       this.open();
@@ -161,7 +161,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public close(fromEvent: boolean) {
     if (this.busyindicator) {
       // call outside the angular zone so change detection isn't triggered by the soho component.
-      this.ngZone.runOutsideAngular(() => this.busyindicator.close(fromEvent));
+      this.ngZone.runOutsideAngular(() => this.busyindicator?.close(fromEvent));
     }
   }
 
@@ -171,14 +171,14 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public open() {
     if (this.busyindicator) {
       // call outside the angular zone so change detection isn't triggered by the soho component.
-      this.ngZone.runOutsideAngular(() => this.busyindicator.activate());
+      this.ngZone.runOutsideAngular(() => this.busyindicator?.activate());
     }
   }
 
-  public isActive(): boolean {
+  public isActive(): boolean | undefined {
     if (this.busyindicator) {
       // call outside the angular zone so change detection isn't triggered by the soho component.
-      return this.ngZone.runOutsideAngular(() => this.busyindicator.isActive());
+      return this.ngZone.runOutsideAngular(() => this.busyindicator?.isActive());
     }
     return false;
   }
@@ -214,7 +214,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       // call outside the angular zone so change detection isn't triggered by the soho component.
       this.ngZone.runOutsideAngular(() => {
         this.updateBusyIndicator = false;
-        this.busyindicator.updated();
+        this.busyindicator?.updated();
       });
     }
   }

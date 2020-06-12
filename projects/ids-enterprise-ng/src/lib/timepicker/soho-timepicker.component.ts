@@ -31,7 +31,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private timepicker: SohoTimePickerStatic;
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;

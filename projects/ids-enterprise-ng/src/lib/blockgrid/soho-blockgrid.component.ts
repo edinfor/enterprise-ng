@@ -26,7 +26,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the data to use, must be specified for this component. */
   @Input()
-  public set dataset(dataset: Array<any>) {
+  public set dataset(dataset: Array<any> | undefined) {
     this.options.dataset = dataset;
 
     if (this.blockgrid) {
@@ -34,7 +34,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.updated(this.blockgrid.settings);
     }
   }
-  public get dataset(): Array<any> {
+  public get dataset(): Array<any> | undefined {
     if (!this.blockgrid) {
       return this.options.dataset;
     }
@@ -43,14 +43,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the selection type. */
   @Input()
-  public set selectable(selectable: SohoBlockGridSelectable) {
+  public set selectable(selectable: SohoBlockGridSelectable | undefined ) {
     this.options.selectable = selectable;
     if (this.blockgrid) {
       this.blockgrid.settings.selectable = selectable;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get selectable(): SohoBlockGridSelectable {
+  public get selectable(): SohoBlockGridSelectable | undefined {
     if (!this.blockgrid) {
       return this.options.selectable;
     }
@@ -65,8 +65,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Options. */
   private options: SohoBlockGridOptions = {};
-  private jQueryElement: JQuery;
-  private blockgrid: SohoBlockGrid;
+  private jQueryElement?: JQuery;
+  private blockgrid?: SohoBlockGrid;
 
   constructor(
     private element: ElementRef,
@@ -96,14 +96,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       }
       if (this.blockgrid) {
         this.blockgrid.destroy();
-        this.blockgrid = null;
+        this.blockgrid = undefined;
       }
     });
   }
 
   /** Reinit blockgrid settings */
   public updated(settings: any): SohoBlockGridComponent {
-    this.ngZone.runOutsideAngular(() => this.blockgrid.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.blockgrid?.updated(settings));
     return this;
   }
 
@@ -114,19 +114,19 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
         return; // safety check
       }
 
-      this.blockgrid.selectBlock($(blockChildren[idx]), false);
+      this.blockgrid?.selectBlock($(blockChildren[idx]), false);
     });
   }
 
   public deactivateBlock(): void {
-    this.blockgrid.selectBlock($(), false);
+    this.blockgrid?.selectBlock($(), false);
   }
 
   public selectBlocks(idx: number[]) {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
-      const blockChildrenArray = Array.from(blockChildren).filter((blockChild, index) => idx.includes(index));
-      this.blockgrid.selectBlock($(blockChildrenArray), true);
+      const blockChildrenArray = Array.from(blockChildren).filter((_, index) => idx.includes(index));
+      this.blockgrid?.selectBlock($(blockChildrenArray), true);
     });
   }
 

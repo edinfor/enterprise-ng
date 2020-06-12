@@ -93,7 +93,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private toolbarsearchfield: SohoToolbarSearchFieldStatic;
   private searchFieldChanged = false;
 
@@ -412,7 +412,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
 
   private options: SohoToolbarOptions = {};
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private toolbar: SohoToolbarStatic;
   private toolbarChanged: boolean;
 

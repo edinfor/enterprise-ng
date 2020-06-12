@@ -56,7 +56,7 @@ export class SohoLabelDirective implements AfterViewInit {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   constructor(private element: ElementRef) {
   }

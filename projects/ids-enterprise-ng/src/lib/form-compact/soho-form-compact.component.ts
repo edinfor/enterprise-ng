@@ -25,7 +25,7 @@ export class SohoFormCompactComponent implements AfterViewInit, AfterViewChecked
     return true;
   }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private formcompact: SohoFormCompact;
   private updateRequired = false;
 

@@ -20,7 +20,7 @@ export class SohoHierarchyLeafTemplateComponent { }
 export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   private hierarchy: SohoHierarchyStatic;
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** An internal options object that gets updated by using the component's Inputs(). */
   private options: SohoHierarchyOptions = {};

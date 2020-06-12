@@ -360,7 +360,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the soho tabs control api.
   private tabs: SohoTabsStatic;

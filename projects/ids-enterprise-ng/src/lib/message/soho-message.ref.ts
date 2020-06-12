@@ -12,7 +12,7 @@ export class SohoMessageRef {
   private eventGuard: SohoModalDialogVetoableEventGuard<any> = { };
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
   private _message: SohoMessageStatic;

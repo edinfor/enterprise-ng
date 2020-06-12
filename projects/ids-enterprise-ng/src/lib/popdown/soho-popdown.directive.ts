@@ -15,7 +15,7 @@ import {
 export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
   @HostBinding('attr.popdown') get isPopdown() { return true; }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   private popdown: SohoPopDownStatic;
 

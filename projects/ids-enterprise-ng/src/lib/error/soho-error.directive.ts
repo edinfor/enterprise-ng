@@ -18,7 +18,7 @@ import {
 export class SohoErrorDirective implements AfterViewInit {
 
   private _options: SohoErrorOptions = {}; // tslint:disable-line
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   constructor(private el: ElementRef) {
   }

@@ -103,7 +103,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the Soho splitter control api.
   private splitter: SohoSplitterStatic;

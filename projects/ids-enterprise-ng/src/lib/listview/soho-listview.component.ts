@@ -342,7 +342,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private listview: SohoListViewStatic;
   private options: SohoListViewOptions = {};
 

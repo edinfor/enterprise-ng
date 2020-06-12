@@ -121,7 +121,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   private static counter = 0;
 
   /** Selector for originating element. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the SoHoXi control api. */
   private swaplist: SohoSwapListStatic;

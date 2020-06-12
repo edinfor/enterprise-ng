@@ -51,7 +51,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Constructor.

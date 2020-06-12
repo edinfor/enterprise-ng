@@ -220,7 +220,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
   private editor: SohoEditorStatic;

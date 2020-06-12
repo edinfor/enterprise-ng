@@ -6,7 +6,7 @@
  * category or section header, and the second level provides the associated options.
  */
 
-type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
+type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron' | false;
 
  /**
  * Soho Accordion Control Options

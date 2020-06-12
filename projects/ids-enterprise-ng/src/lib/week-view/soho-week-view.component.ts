@@ -426,7 +426,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private weekView?: SohoWeekView;
   private _weekViewOptions: SohoWeekViewOptions = {};
   private updateRequired: boolean;

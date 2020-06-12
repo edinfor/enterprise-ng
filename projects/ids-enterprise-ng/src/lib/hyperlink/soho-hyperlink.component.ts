@@ -68,7 +68,7 @@ export class SohoHyperlinkComponent implements AfterViewInit {
   @HostBinding('attr.isCaretLeft') @Input() isCaretLeft: boolean;
 
   private hyperlinkType: SohoHyperlinkType;
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   constructor(private element: ElementRef) { }
 

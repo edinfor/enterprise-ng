@@ -50,7 +50,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
    *
    *
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Creates an instance of SohoTagListComponent.
@@ -179,7 +179,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   private tagType: SohoTagType;
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   tag: SohoTag;
 

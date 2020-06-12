@@ -19,7 +19,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   private validator: SohoInputValidateStatic;
 

@@ -143,7 +143,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
   }
 
   private _emptyMessageOptions: SohoEmptyMessageOptions = {};
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private emptymessage: SohoEmptyMessageStatic;
   private updateComponent = false;
 

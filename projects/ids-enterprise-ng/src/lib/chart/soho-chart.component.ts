@@ -98,7 +98,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
   private _chartOptions: SohoChartOptions = {animate: true};
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the soho chart control api.
   private chart: SohoChartStatic;

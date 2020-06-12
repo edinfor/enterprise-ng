@@ -175,7 +175,7 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private pie: SohoPie;
   private updateRequired = false;
 

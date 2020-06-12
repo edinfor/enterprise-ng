@@ -141,7 +141,7 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
   private tooltip: SohoTooltipStatic;

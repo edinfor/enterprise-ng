@@ -25,7 +25,7 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
     return true;
   }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private rating: SohoRating;
   constructor(private element: ElementRef) { }
 

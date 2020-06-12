@@ -79,7 +79,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private searchfield: SohoSearchFieldStatic;
 
   constructor(

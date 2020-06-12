@@ -67,7 +67,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
    */
 
   /** JQuery Component */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Constructor.

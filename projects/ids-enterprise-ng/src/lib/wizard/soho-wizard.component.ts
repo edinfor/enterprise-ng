@@ -132,7 +132,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   // -------------------------------------------
 
   /** Reference to the jQuery control. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the SoHo wizard control api. */
   private wizard: SohoWizardStatic;

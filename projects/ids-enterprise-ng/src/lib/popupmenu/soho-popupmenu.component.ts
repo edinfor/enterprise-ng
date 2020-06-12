@@ -318,7 +318,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   private popupmenu: SohoPopupMenuStatic;
 

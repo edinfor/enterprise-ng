@@ -423,7 +423,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private calendar: SohoCalendar;
   private _calendarOptions: SohoCalendarOptions = {};
   private _calendarWeekOptions: SohoCalendarWeekOptions = {};

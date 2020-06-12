@@ -18,7 +18,7 @@ import {
 export class SohoHomepageSizerDirective implements AfterViewInit, OnDestroy {
   @HostBinding('style.height.px') get heightStyle() { return this.containerHeight; }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private containerHeight: number;
 
   constructor(public elementRef: ElementRef, private ngZone: NgZone) {}

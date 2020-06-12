@@ -361,7 +361,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
   private mask: SohoMaskStatic;
 
   constructor(private element: ElementRef) {

@@ -1248,7 +1248,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the Soho datagrid control api.
   private datagrid: SohoDataGridStatic;

@@ -2,7 +2,7 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, EventEmitter, ViewChild } from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoBlockGridModule } from './soho-blockgrid.module';
@@ -134,7 +134,7 @@ describe('Soho blockgrid Unit Tests', () => {
 })
 class SohoBlockGridTestComponent {
   public data = blockGridTestData;
-  @ViewChild(SohoBlockGridComponent) blockgrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent) blockgrid?: SohoBlockGridComponent;
 }
 describe('Soho blockgrid Render', () => {
   let blockgrid: SohoBlockGridComponent;

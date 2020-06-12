@@ -1,7 +1,7 @@
 /// <reference path="soho-bar.d.ts" />
 
 import { } from 'jasmine';
-import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -212,7 +212,7 @@ describe('Soho Bar Unit Tests', () => {
   `
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent) bar?: SohoBarComponent;
   public data = barData;
 }
 

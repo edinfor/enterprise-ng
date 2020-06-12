@@ -25,7 +25,7 @@ export class SohoModalDialogRef<T> {
   private _closeOnNavigation = true;
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
   private modal: SohoModalStatic;

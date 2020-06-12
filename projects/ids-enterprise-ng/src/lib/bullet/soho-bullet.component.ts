@@ -60,10 +60,10 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu?: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private bullet: SohoBullet;
+  private jQueryElement?: JQuery;
+  private bullet?: SohoBullet | null;
   private updateRequired = false;
 
   constructor(
@@ -77,19 +77,19 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
 
       this.options.type = 'bullet';
       this.jQueryElement.chart(this.options);
-      this.bullet = this.jQueryElement.data('bullet');
+      this.bullet = this.jQueryElement?.data('bullet');
 
       // Setup the events
       this.jQueryElement.on('rendered', (... args) =>
           this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.bullet && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.bullet.updated(this.bullet.settings));
+      this.ngZone.runOutsideAngular(() => this.bullet?.updated(this.bullet?.settings));
       this.updateRequired = false;
     }
   }
