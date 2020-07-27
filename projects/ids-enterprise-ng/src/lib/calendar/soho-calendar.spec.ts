@@ -145,13 +145,13 @@ describe('Soho Calendar Unit Tests', () => {
 })
 class SohoCalendarTestComponent {
   @ViewChild(SohoCalendarComponent)
-  calendar: SohoCalendarComponent;
+  calendar?: SohoCalendarComponent;
 
-  public events: SohoCalendarEvent[];
-  public eventTypes: SohoCalendarEventType[];
+  public events?: SohoCalendarEvent[];
+  public eventTypes?: SohoCalendarEventType[];
   public locale = 'en-US';
-  public month: number;
-  public year: number;
+  public month?: number;
+  public year?: number;
 }
 
 describe('Soho Calendar Chart Render', () => {

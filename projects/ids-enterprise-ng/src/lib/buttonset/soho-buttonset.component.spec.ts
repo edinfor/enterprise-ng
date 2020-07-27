@@ -26,7 +26,7 @@ import { SohoButtonsetComponent } from './soho-buttonset.component';
   </div>`
 })
 class SohoButtonsetTestComponent {
-  @ViewChild(SohoButtonsetComponent, { static: true }) buttonset: SohoButtonsetComponent;
+  @ViewChild(SohoButtonsetComponent, { static: true }) buttonset?: SohoButtonsetComponent;
 
   constructor() {
   }

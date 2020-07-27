@@ -87,8 +87,6 @@ class SohoAutoCompleteTestComponent {
 }
 
 describe('Soho Autocomplete Render', () => {
-  let autocomplete: SohoAutoCompleteComponent;
-  let component: SohoAutoCompleteTestComponent;
   let fixture: ComponentFixture<SohoAutoCompleteTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -100,13 +98,11 @@ describe('Soho Autocomplete Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoAutoCompleteTestComponent);
-    component = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
 
     fixture.detectChanges();
-    autocomplete = component.autocomplete;
   });
 
   it('Check HTML content', () => {

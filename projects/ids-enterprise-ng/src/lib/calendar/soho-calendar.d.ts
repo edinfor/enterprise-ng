@@ -44,7 +44,7 @@ interface SohoCalendarEventType {
   label: string;
   color: SohoCalendarColors;
   checked: boolean;
-  click: Function;
+  click: Function | null;
   translationKey: string;
 }
 
