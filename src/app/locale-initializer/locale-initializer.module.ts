@@ -26,7 +26,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: 'en-US'
+      useValue: 'es-ES'
     },
     {
       provide: APP_INITIALIZER,

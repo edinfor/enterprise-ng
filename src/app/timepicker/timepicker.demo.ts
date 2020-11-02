@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import {
   SohoTimePickerComponent
@@ -14,21 +15,26 @@ import {
 })
 export class TimePickerDemoComponent implements OnInit {
 
-  @ViewChild(SohoTimePickerComponent, { static: true }) timepicker: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent, { static: false }) timepicker: SohoTimePickerComponent;
 
-  public model = { // tslint:disable-line
-    hhmm: '1:23 PM',
-    hhmmss: '1:23:43 PM',
-    HHmm24: '17:50'
-  };
   public showModel = false;
   public timepickerDisabled = false;
   public timepickerReadOnly = false;
+  startTime: any;
+  formScheduleTriggerDetail: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.CreateFormGroup();
+  }
 
-  ngOnInit() { }
-
+  ngOnInit() {
+    this.startTime = '0:50';
+  }
+  CreateFormGroup() {
+    this.formScheduleTriggerDetail = this.formBuilder.group({
+      startTime: [this.startTime]
+    });
+  }
   toggleModel() {
     this.showModel = !this.showModel;
   }
