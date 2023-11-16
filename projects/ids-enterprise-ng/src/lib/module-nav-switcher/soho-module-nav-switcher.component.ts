@@ -35,6 +35,8 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     displayMode: false,
     generate: false,
     icon: undefined,
+    changeIconOnSelect: true,
+    noSearch: false,
     moduleButtonText: undefined,
     roleDropdownLabel: undefined,
     roles: []
@@ -75,6 +77,24 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
   public get icon(): SohoModuleNavSwitcherIconSetting {
     return this.modulenavswitcher?.settings.icon || this._options.icon;
+  }
+
+  @Input() set changeIconOnSelect(val: boolean | undefined) {
+    this._options.changeIconOnSelect = val;
+    this.updated({ changeIconOnSelect: this._options.changeIconOnSelect });
+  }
+  public get changeIconOnSelect(): boolean | undefined {
+    return this.modulenavswitcher?.settings.changeIconOnSelect || this._options.changeIconOnSelect;
+  }
+
+  @Input() set noSearch(val: boolean | undefined) {
+    console.log(val);
+    this._options.noSearch = val;
+    this.updated({ noSearch: this._options.noSearch });
+  }
+
+  public get noSearch(): boolean | undefined {
+    return this.modulenavswitcher?.settings.noSearch || this._options.noSearch;
   }
 
   @Input() set moduleButtonText(val: string | undefined) {
@@ -176,6 +196,9 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.ngZone.runOutsideAngular(() => {
       // Initialize/store instance
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
+      if (this._options.noSearch)
+        this.jQueryElement.find('select').attr('data-options', `{ noSearch: true}`);
+
       this.jQueryElement.modulenavswitcher(this._options);
       this.modulenavswitcher = this.jQueryElement.data('modulenavswitcher');
 

@@ -9,7 +9,7 @@
  */
 type SohoModuleNavSwitcherRoleRecord = Record<string, unknown>;
 
-type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherStatic) => string) | undefined;
+type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherStatic) => string) | undefined | false;
 
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
@@ -18,6 +18,8 @@ interface SohoModuleNavSwitcherOptions {
   icon?: SohoModuleNavSwitcherIconSetting;
   moduleButtonText?: string;
   roleDropdownLabel?: string;
+  changeIconOnSelect?: boolean;
+  noSearch?: boolean;
   roles?: Array<SohoModuleNavSwitcherRoleRecord>;
 }
 
@@ -37,6 +39,9 @@ interface SohoModuleNavSwitcherStatic {
 
   /** Reference to the Module Button's Container Element */
   moduleButtonContainerEl?: HTMLElement;
+
+  /** Reference to the Module Button's Icon Element */
+  moduleButtonIconEl?: HTMLElement | SVGElement;
 
   /** Reference to the Module Button element */
   moduleButtonEl?: HTMLElement;

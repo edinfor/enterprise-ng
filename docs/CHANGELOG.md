@@ -10,10 +10,45 @@
 - `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
 
 ## 15.4.6
+## 15.6.1
 
-### 15.4.6 Features
+### 15.6.1 Features
 
-- `[General]` Fixed type issue
+- `[TimePicker]` Fix timepicker to allow icon button to be clickable after reenabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+- `[Timepicker]` Remove `disabled` prop in trigger button on enable call. ([NG#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+
+## 15.6.0
+
+### 15.6.0 Features
+
+- `[General]` Added 4.86.0 version.
+
+## 15.4.10
+
+### 15.4.10 Features
+
+- `[General]` Added 4.84.6 version.
+- `[Module Nav]` Added ability to set icon to false
+- `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
+
+## 15.4.9
+
+### 15.4.9 Features
+
+- `[General]` Added 4.84.5 version.
+
+## 15.4.8
+
+### 15.4.8 Features
+
+- `[General]` Added 4.84.5 version. (mistake)
+
+## 15.4.7
+
+### 15.4.7 Features
+
+- `[General]` Added 4.84.4 version.
+
 ## 15.4.5
 
 ### 15.4.5 Features
@@ -23,6 +58,7 @@
 - `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
 
 ## 15.4.2
+
 ### 15.4.2 Features
 
 - `[General]` Added 4.84.1 version.
